@@ -7,10 +7,11 @@ import {
   SidebarTitle,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Church } from "lucide-react";
+import { Church, PanelLeft } from "lucide-react";
 
 import { Header } from "@/components/layout/header";
 import { SidebarNav } from "@/components/layout/sidebar-nav";
+import { Button } from "@/components/ui/button";
 
 export default function DashboardLayout({
   children,
@@ -36,7 +37,12 @@ export default function DashboardLayout({
         <SidebarInset className="min-h-screen flex-1">
           <Header>
             <div className="flex items-center">
-              <SidebarTrigger className="md:hidden" />
+              <SidebarTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <PanelLeft />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SidebarTrigger>
               <div className="md:hidden ml-2">
                 <div className="flex items-center gap-2">
                   <Church />
