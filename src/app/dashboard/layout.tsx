@@ -37,11 +37,9 @@ export default function DashboardLayout({
         <SidebarInset className="min-h-screen flex-1">
           <Header>
             <div className="flex items-center">
-              <SidebarTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <PanelLeft />
-                  <span className="sr-only">Toggle Menu</span>
-                </Button>
+              <SidebarTrigger variant="ghost" size="icon" className="md:hidden">
+                <PanelLeft />
+                <span className="sr-only">Toggle Menu</span>
               </SidebarTrigger>
               <div className="md:hidden ml-2">
                 <div className="flex items-center gap-2">
