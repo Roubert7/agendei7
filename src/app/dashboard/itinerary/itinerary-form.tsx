@@ -43,7 +43,7 @@ import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
   date: z.date({
-    required_error: 'A date is required to generate the itinerary.',
+    required_error: 'Uma data é necessária para gerar o roteiro.',
   }),
   additionalContext: z.string().optional(),
 });
@@ -68,8 +68,8 @@ export function ItineraryForm() {
     if (dateSchedules.length === 0) {
       toast({
         variant: "destructive",
-        title: "No Schedules Found",
-        description: "There are no schedules for the selected date to generate an itinerary.",
+        title: "Nenhuma Agenda Encontrada",
+        description: "Não há agendas para a data selecionada para gerar um roteiro.",
       });
       setLoading(false);
       return;
@@ -78,7 +78,7 @@ export function ItineraryForm() {
     const scalesInformation = dateSchedules
       .map(
         (s) =>
-          `- ${s.startTime}-${s.endTime}: ${s.role} (${s.department}) with ${s.members.join(', ')}`
+          `- ${s.startTime}-${s.endTime}: ${s.role} (${s.department}) com ${s.members.join(', ')}`
       )
       .join('\n');
 
@@ -90,11 +90,11 @@ export function ItineraryForm() {
       });
       setResult(output);
     } catch (error) {
-        console.error("Failed to generate itinerary:", error);
+        console.error("Falha ao gerar roteiro:", error);
         toast({
             variant: "destructive",
-            title: "Generation Failed",
-            description: "An error occurred while generating the itinerary. Please try again.",
+            title: "Falha na Geração",
+            description: "Ocorreu um erro ao gerar o roteiro. Por favor, tente novamente.",
         })
     } finally {
       setLoading(false);
@@ -105,9 +105,9 @@ export function ItineraryForm() {
     <div className="grid gap-8 lg:grid-cols-2">
       <Card>
         <CardHeader>
-          <CardTitle>Generator Settings</CardTitle>
+          <CardTitle>Configurações do Gerador</CardTitle>
           <CardDescription>
-            Select a date and provide any extra context for the AI.
+            Selecione uma data e forneça qualquer contexto extra para a IA.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -118,7 +118,7 @@ export function ItineraryForm() {
                 name="date"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Event Date</FormLabel>
+                    <FormLabel>Data do Evento</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -132,7 +132,7 @@ export function ItineraryForm() {
                             {field.value ? (
                               format(field.value, 'PPP')
                             ) : (
-                              <span>Pick a date</span>
+                              <span>Escolha uma data</span>
                             )}
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                           </Button>
@@ -156,16 +156,16 @@ export function ItineraryForm() {
                 name="additionalContext"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Additional Context</FormLabel>
+                    <FormLabel>Contexto Adicional</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="e.g., Event theme is 'Harvest'. Special guest is Pastor John."
+                        placeholder="Ex: O tema do evento é 'Colheita'. O convidado especial é o Pastor João."
                         className="resize-none"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      Provide any extra details for the AI to consider.
+                      Forneça quaisquer detalhes extras para a IA considerar.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -177,7 +177,7 @@ export function ItineraryForm() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Generate Itinerary
+                Gerar Roteiro
               </Button>
             </form>
           </Form>
@@ -185,16 +185,16 @@ export function ItineraryForm() {
       </Card>
       <Card className="flex flex-col">
         <CardHeader>
-          <CardTitle>Generated Itinerary</CardTitle>
+          <CardTitle>Roteiro Gerado</CardTitle>
           <CardDescription>
-            The AI-generated program itinerary will appear here.
+            O roteiro do programa gerado pela IA aparecerá aqui.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-1">
           {loading && (
             <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
               <Loader2 className="h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4">Generating itinerary...</p>
+              <p className="mt-4">Gerando roteiro...</p>
             </div>
           )}
           {result && (
@@ -206,13 +206,13 @@ export function ItineraryForm() {
           {!loading && !result && (
             <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground p-8 border-dashed border-2 rounded-lg">
                 <Wand2 className="h-12 w-12" />
-                <p className="mt-4">Your generated itinerary is just a click away.</p>
+                <p className="mt-4">Seu roteiro gerado está a apenas um clique de distância.</p>
             </div>
           )}
         </CardContent>
         {result && 
           <CardFooter>
-            <p className="text-xs text-muted-foreground">Itinerary generated by AI. Please review for accuracy.</p>
+            <p className="text-xs text-muted-foreground">Roteiro gerado por IA. Por favor, revise para precisão.</p>
           </CardFooter>
         }
       </Card>

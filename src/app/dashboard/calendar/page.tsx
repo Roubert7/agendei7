@@ -30,10 +30,10 @@ export default function CalendarPage() {
     <div className="flex flex-col gap-6">
        <div>
         <h1 className="text-3xl font-headline tracking-tight">
-          Event Calendar
+          Calendário de Eventos
         </h1>
         <p className="text-muted-foreground">
-          A visual overview of all scheduled activities.
+          Uma visão geral de todas as atividades agendadas.
         </p>
       </div>
 
@@ -56,14 +56,14 @@ export default function CalendarPage() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="font-semibold">
-                Schedules for {date ? format(date, "PPP") : "..."}
+                Agenda para {date ? format(date, "PPP") : "..."}
               </h3>
               <p className="text-sm text-muted-foreground">
-                {selectedDaySchedules.length} activit{selectedDaySchedules.length === 1 ? 'y' : 'ies'} today.
+                {selectedDaySchedules.length} atividade{selectedDaySchedules.length === 1 ? '' : 's'} hoje.
               </p>
             </div>
             <Button variant="outline" size="sm" className="gap-2">
-                <Icons.google className="w-4 h-4"/> Sync
+                <Icons.google className="w-4 h-4"/> Sincronizar
             </Button>
           </div>
           <Separator />
@@ -88,7 +88,7 @@ export default function CalendarPage() {
                 ))
               ) : (
                 <div className="text-center text-muted-foreground py-16">
-                  <p>No schedules for this date.</p>
+                  <p>Nenhuma agenda para esta data.</p>
                 </div>
               )}
             </div>

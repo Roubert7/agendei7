@@ -30,52 +30,52 @@ export default function DashboardPage() {
           Seja Bem Vindo, {user.name.split(" ")[0]}
         </h1>
         <p className="text-muted-foreground">
-          Here's an overview of your church's activities.
+          Aqui está um resumo das atividades da sua igreja.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Schedules</CardTitle>
+            <CardTitle className="text-sm font-medium">Total de Agendas</CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{schedules.length}</div>
             <p className="text-xs text-muted-foreground">
-              managed across all departments
+              gerenciadas em todos os departamentos
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Active Departments
+              Departamentos Ativos
             </CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{departments.length}</div>
             <p className="text-xs text-muted-foreground">
-              currently collaborating
+              colaborando atualmente
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Next Event</CardTitle>
+            <CardTitle className="text-sm font-medium">Próximo Evento</CardTitle>
             <CalendarDays className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
               {upcomingSchedules.length > 0
-                ? format(upcomingSchedules[0].date, "MMMM do")
-                : "No upcoming events"}
+                ? format(upcomingSchedules[0].date, "do 'de' MMMM")
+                : "Nenhum evento próximo"}
             </div>
             <p className="text-xs text-muted-foreground">
               {upcomingSchedules.length > 0
                 ? upcomingSchedules[0].role
-                : "Plan your next event"}
+                : "Planeje seu próximo evento"}
             </p>
           </CardContent>
         </Card>
@@ -83,19 +83,19 @@ export default function DashboardPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Upcoming Schedules</CardTitle>
+          <CardTitle>Próximas Agendas</CardTitle>
           <CardDescription>
-            These are the next 5 scheduled activities.
+            Estas são as próximas 5 atividades agendadas.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Department</TableHead>
-                <TableHead>Role</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Members</TableHead>
+                <TableHead>Departamento</TableHead>
+                <TableHead>Função</TableHead>
+                <TableHead>Data</TableHead>
+                <TableHead>Membros</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

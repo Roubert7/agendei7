@@ -15,10 +15,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/dashboard/schedules", label: "Schedules", icon: ListTodo },
-  { href: "/dashboard/calendar", label: "Calendar", icon: Calendar },
-  { href: "/dashboard/itinerary", label: "Itinerary", icon: FileText },
+  { href: "/dashboard", label: "Painel", icon: LayoutDashboard },
+  { href: "/dashboard/schedules", label: "Agendas", icon: ListTodo },
+  { href: "/dashboard/calendar", label: "Calendário", icon: Calendar },
+  { href: "/dashboard/itinerary", label: "Roteiro", icon: FileText },
 ];
 
 export function SidebarNav() {

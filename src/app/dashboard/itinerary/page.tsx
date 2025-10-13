@@ -5,10 +5,10 @@ export default function ItineraryPage() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-3xl font-headline tracking-tight">
-          AI Itinerary Generator
+          Gerador de Roteiro com IA
         </h1>
         <p className="text-muted-foreground">
-          Create a complete program itinerary for any event date using AI.
+          Crie um roteiro de programa completo para qualquer data de evento usando IA.
         </p>
       </div>
       <ItineraryForm />

@@ -29,10 +29,10 @@ export default function LoginPage() {
         <CardHeader>
           <div className="flex items-center justify-center gap-2 mb-2">
             <Church className="h-8 w-8 text-primary" />
-            <CardTitle className="text-3xl font-headline">Church Scheduler</CardTitle>
+            <CardTitle className="text-3xl font-headline">Agendador da Igreja</CardTitle>
           </div>
           <CardDescription className="text-center">
-            Enter your email below to login to your account
+            Digite seu e-mail abaixo para fazer login na sua conta
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -42,14 +42,14 @@ export default function LoginPage() {
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="m@exemplo.com"
                 required
                 defaultValue="user@church.com"
               />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Senha</Label>
               </div>
               <Input id="password" type="password" required defaultValue="password" />
             </div>

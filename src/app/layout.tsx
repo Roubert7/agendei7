@@ -4,12 +4,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Church Scheduler',
-  description: 'Collaborative church scheduling and itinerary planning app.',
-  applicationName: 'Church Scheduler',
+  title: 'Agendador de Igreja',
+  description: 'Aplicativo colaborativo de agendamento e planejamento de roteiros para igrejas.',
+  applicationName: 'Agendador de Igreja',
   appleWebApp: {
     capable: true,
-    title: 'Church Scheduler',
+    title: 'Agendador de Igreja',
     statusBarStyle: 'default',
   },
   formatDetection: {
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

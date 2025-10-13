@@ -15,15 +15,15 @@ const GenerateProgramItineraryInputSchema = z.object({
   date: z
     .string()
     .describe(
-      'The date for which to generate the program itinerary (YYYY-MM-DD)'
+      'A data para a qual gerar o roteiro do programa (YYYY-MM-DD)'
     ),
-  scalesInformation: z.string().describe('Detailed information about the schedules for the specified date.'),
-  additionalContext: z.string().optional().describe('Additional context or instructions for itinerary generation.'),
+  scalesInformation: z.string().describe('Informações detalhadas sobre as escalas para a data especificada.'),
+  additionalContext: z.string().optional().describe('Contexto adicional ou instruções para a geração do roteiro.'),
 });
 export type GenerateProgramItineraryInput = z.infer<typeof GenerateProgramItineraryInputSchema>;
 
 const GenerateProgramItineraryOutputSchema = z.object({
-  itinerary: z.string().describe('The generated program itinerary for the specified date.'),
+  itinerary: z.string().describe('O roteiro do programa gerado para a data especificada.'),
 });
 export type GenerateProgramItineraryOutput = z.infer<typeof GenerateProgramItineraryOutputSchema>;
 
@@ -35,17 +35,17 @@ const generateProgramItineraryPrompt = ai.definePrompt({
   name: 'generateProgramItineraryPrompt',
   input: {schema: GenerateProgramItineraryInputSchema},
   output: {schema: GenerateProgramItineraryOutputSchema},
-  prompt: `You are an AI assistant designed to generate a program itinerary for a church event on a specific date.
+  prompt: `Você é um assistente de IA projetado para gerar um roteiro de programa para um evento de igreja em uma data específica.
 
-  Given the schedule information and any additional context, create a detailed and well-organized program itinerary.
-  The itinerary should include the timing, department responsible, and activity details for each item on the schedule.
-  Optimize for clarity, flow, and engagement.
+  Dadas as informações da agenda e qualquer contexto adicional, crie um roteiro de programa detalhado e bem organizado.
+  O roteiro deve incluir o horário, o departamento responsável e os detalhes da atividade para cada item da agenda.
+  Otimize para clareza, fluidez e engajamento.
 
-  Date: {{{date}}}
-  Schedule Information: {{{scalesInformation}}}
-  Additional Context: {{{additionalContext}}}
+  Data: {{{date}}}
+  Informações da Agenda: {{{scalesInformation}}}
+  Contexto Adicional: {{{additionalContext}}}
 
-  Please generate the program itinerary:
+  Por favor, gere o roteiro do programa:
   `,
 });
 

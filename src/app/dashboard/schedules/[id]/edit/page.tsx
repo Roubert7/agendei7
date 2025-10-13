@@ -43,18 +43,18 @@ import { departments, schedules } from "@/lib/data";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  department: z.string().min(1, { message: "Please select a department." }),
+  department: z.string().min(1, { message: "Por favor, selecione um departamento." }),
   role: z.string().min(2, {
-    message: "Role must be at least 2 characters.",
+    message: "A função deve ter pelo menos 2 caracteres.",
   }),
-  date: z.date({ required_error: "A date is required." }),
+  date: z.date({ required_error: "A data é obrigatória." }),
   startTime: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, {
-    message: "Invalid time format (HH:mm)",
+    message: "Formato de hora inválido (HH:mm)",
   }),
   endTime: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, {
-    message: "Invalid time format (HH:mm)",
+    message: "Formato de hora inválido (HH:mm)",
   }),
-  members: z.string().min(1, { message: "Please add at least one member." }),
+  members: z.string().min(1, { message: "Por favor, adicione pelo menos um membro." }),
 });
 
 export default function EditSchedulePage() {
@@ -63,7 +63,7 @@ export default function EditSchedulePage() {
   const { toast } = useToast();
   const { id } = params;
 
-  // Find the schedule to edit - in a real app, you'd fetch this.
+  // Em um aplicativo real, você buscaria isso.
   const scheduleToEdit = schedules.find(s => s.id === id);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -77,8 +77,8 @@ export default function EditSchedulePage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Schedule Updated",
-      description: `The schedule for ${values.department} has been successfully updated.`,
+      title: "Agenda Atualizada",
+      description: `A agenda para ${values.department} foi atualizada com sucesso.`,
     });
     router.push("/dashboard/schedules");
   }
@@ -86,9 +86,9 @@ export default function EditSchedulePage() {
   return (
     <Card className="max-w-4xl mx-auto">
       <CardHeader>
-        <CardTitle className="font-headline text-3xl">Edit Schedule</CardTitle>
+        <CardTitle className="font-headline text-3xl">Editar Agenda</CardTitle>
         <CardDescription>
-          Modify the details for this schedule.
+          Modifique os detalhes para esta agenda.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -100,14 +100,14 @@ export default function EditSchedulePage() {
                 name="department"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Department</FormLabel>
+                    <FormLabel>Departamento</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a department" />
+                          <SelectValue placeholder="Selecione um departamento" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -127,9 +127,9 @@ export default function EditSchedulePage() {
                 name="role"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Role</FormLabel>
+                    <FormLabel>Função</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g., Lead Vocalist, Sound Engineer" {...field} />
+                      <Input placeholder="Ex: Vocalista Principal, Engenheiro de Som" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -140,7 +140,7 @@ export default function EditSchedulePage() {
                 name="date"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Date</FormLabel>
+                    <FormLabel>Data</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -154,7 +154,7 @@ export default function EditSchedulePage() {
                             {field.value ? (
                               format(field.value, "PPP")
                             ) : (
-                              <span>Pick a date</span>
+                              <span>Escolha uma data</span>
                             )}
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                           </Button>
@@ -180,7 +180,7 @@ export default function EditSchedulePage() {
                   name="startTime"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Start Time</FormLabel>
+                      <FormLabel>Hora de Início</FormLabel>
                       <FormControl>
                         <Input type="time" {...field} />
                       </FormControl>
@@ -193,7 +193,7 @@ export default function EditSchedulePage() {
                   name="endTime"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>End Time</FormLabel>
+                      <FormLabel>Hora de Término</FormLabel>
                       <FormControl>
                         <Input type="time" {...field} />
                       </FormControl>
@@ -208,12 +208,12 @@ export default function EditSchedulePage() {
                     name="members"
                     render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Members</FormLabel>
+                        <FormLabel>Membros</FormLabel>
                         <FormControl>
-                        <Input placeholder="John Doe, Jane Smith" {...field} />
+                        <Input placeholder="João da Silva, Maria Souza" {...field} />
                         </FormControl>
                         <FormDescription>
-                            Enter member names, separated by commas.
+                            Digite os nomes dos membros, separados por vírgula.
                         </FormDescription>
                         <FormMessage />
                     </FormItem>
@@ -222,8 +222,8 @@ export default function EditSchedulePage() {
               </div>
             </div>
             <div className="flex justify-end gap-2">
-                <Button type="button" variant="outline" onClick={() => router.back()}>Cancel</Button>
-                <Button type="submit">Save Changes</Button>
+                <Button type="button" variant="outline" onClick={() => router.back()}>Cancelar</Button>
+                <Button type="submit">Salvar Alterações</Button>
             </div>
           </form>
         </Form>

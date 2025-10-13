@@ -28,7 +28,7 @@ export default function DashboardLayout({
         >
           <SidebarHeader>
             <Church />
-            <SidebarTitle className="font-headline text-2xl">Scheduler</SidebarTitle>
+            <SidebarTitle className="font-headline text-2xl">Agendador</SidebarTitle>
           </SidebarHeader>
           <SidebarContent>
             <SidebarNav />
@@ -37,14 +37,16 @@ export default function DashboardLayout({
         <SidebarInset className="min-h-screen flex-1">
           <Header>
             <div className="flex items-center">
-              <SidebarTrigger variant="ghost" size="icon" className="md:hidden">
-                <PanelLeft />
-                <span className="sr-only">Toggle Menu</span>
+              <SidebarTrigger asChild variant="ghost" size="icon" className="md:hidden">
+                <Button>
+                  <PanelLeft />
+                  <span className="sr-only">Alternar Menu</span>
+                </Button>
               </SidebarTrigger>
               <div className="md:hidden ml-2">
                 <div className="flex items-center gap-2">
                   <Church />
-                  <span className="font-headline text-2xl">Scheduler</span>
+                  <span className="font-headline text-2xl">Agendador</span>
                 </div>
               </div>
             </div>

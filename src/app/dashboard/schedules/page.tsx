@@ -38,16 +38,16 @@ export default function SchedulesPage() {
       <CardHeader>
         <div className="flex items-center justify-between">
             <div>
-                <CardTitle className="font-headline text-3xl">Schedules</CardTitle>
+                <CardTitle className="font-headline text-3xl">Agendas</CardTitle>
                 <CardDescription>
-                    Manage all department schedules for your church events.
+                    Gerencie todas as agendas de departamentos para os eventos da sua igreja.
                 </CardDescription>
             </div>
             <Link href="/dashboard/schedules/new">
                 <Button size="sm" className="gap-1">
                     <PlusCircle className="h-3.5 w-3.5" />
                     <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                    New Schedule
+                    Nova Agenda
                     </span>
                 </Button>
             </Link>
@@ -57,13 +57,13 @@ export default function SchedulesPage() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Department</TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Time</TableHead>
-              <TableHead>Members</TableHead>
+              <TableHead>Departamento</TableHead>
+              <TableHead>Função</TableHead>
+              <TableHead>Data</TableHead>
+              <TableHead>Horário</TableHead>
+              <TableHead>Membros</TableHead>
               <TableHead>
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">Ações</span>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -86,15 +86,15 @@ export default function SchedulesPage() {
                     <DropdownMenuTrigger asChild>
                       <Button aria-haspopup="true" size="icon" variant="ghost">
                         <MoreHorizontal className="h-4 w-4" />
-                        <span className="sr-only">Toggle menu</span>
+                        <span className="sr-only">Abrir menu</span>
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                      <DropdownMenuLabel>Ações</DropdownMenuLabel>
                        <Link href={`/dashboard/schedules/${schedule.id}/edit`}>
-                         <DropdownMenuItem>Edit</DropdownMenuItem>
+                         <DropdownMenuItem>Editar</DropdownMenuItem>
                        </Link>
-                      <DropdownMenuItem>Delete</DropdownMenuItem>
+                      <DropdownMenuItem>Excluir</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
@@ -105,8 +105,8 @@ export default function SchedulesPage() {
       </CardContent>
       <CardFooter>
         <div className="text-xs text-muted-foreground">
-          Showing <strong>1-{sortedSchedules.length}</strong> of <strong>{sortedSchedules.length}</strong>{" "}
-          schedules
+          Mostrando <strong>1-{sortedSchedules.length}</strong> de <strong>{sortedSchedules.length}</strong>{" "}
+          agendas
         </div>
       </CardFooter>
     </Card>
