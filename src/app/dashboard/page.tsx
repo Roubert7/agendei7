@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { schedules, departments } from "@/lib/data";
+import { schedules, departments, user } from "@/lib/data";
 import { Activity, Users, CalendarDays } from "lucide-react";
 import { format } from "date-fns";
 import {
@@ -27,7 +27,7 @@ export default function DashboardPage() {
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="text-4xl font-headline tracking-tight">
-          Welcome to Church Scheduler
+          Seja Bem Vindo, {user.name.split(" ")[0]}
         </h1>
         <p className="text-muted-foreground">
           Here's an overview of your church's activities.
