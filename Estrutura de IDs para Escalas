@@ -1,0 +1,49 @@
+Estrutura de IDs para Escalas
+
+Geração de IDs Únicos para Escalas (ES_ID_ESCALA)
+
+Sua observação sobre a criação de um ID único para cada escala é um ponto crucial para a integridade e organização dos dados em um sistema real. A estrutura que você propôs é uma ótima prática de banco de dados.
+
+Regra de Formação do ID:
+
+O ID de cada escala (ES_ID_ESCALA) será formado pela concatenação das seguintes informações:
+
+ES_ID_ESCALA = [CHAVE_NUMERICA] + [EV_ID_EVENTO] + [DE_ID_DEPTO]
+
+Detalhamento de cada parte:
+
+CHAVE_NUMERICA: Um número sequencial ou um timestamp para garantir que cada escala dentro do mesmo evento e departamento seja única. Por exemplo, "01", "02", etc.
+
+EV_ID_EVENTO: O ID único do evento ao qual a escala pertence (ex: evt1, evt2).
+
+DE_ID_DEPTO: O ID único do departamento responsável (ex: MUSICA, SECRETARIA).
+
+Exemplo Prático:
+
+Evento: Culto de Celebração (EV_ID_EVENTO = evt1)
+
+Departamento: Ministério da Música (DE_ID_DEPTO = MUSICA)
+
+Ao criar as escalas para este evento, os IDs seriam gerados da seguinte forma:
+
+A primeira escala (ex: "Vocal Principal") teria o ID: 01-evt1-MUSICA
+
+A segunda escala (ex: "Mesa de Som") teria o ID: 02-evt1-MUSICA
+
+Implementação no Sistema Real:
+
+No protótipo atual, os dados são estáticos para simular a interface. A lógica de criar e salvar esses IDs seria implementada no backend (a parte do sistema que roda no servidor).
+
+Quando um usuário salvar uma nova escala, o sistema no servidor irá:
+
+Receber os dados da escala.
+
+Pegar o ID do Evento e o ID do Departamento.
+
+Gerar a chave numérica sequencial.
+
+Concatenar tudo para formar o ES_ID_ESCALA final.
+
+Salvar o registro completo na tabela ESCALAS do banco de dados.
+
+Essa definição é um passo muito importante no design da arquitetura do sistema. Manteremos esta regra documentada para a fase de desenvolvimento do banco de dados e do backend.
